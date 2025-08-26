@@ -12,7 +12,8 @@ import {
     Brain,
     User,
     Code,
-    Hash
+    Hash,
+    LoaderCircle
 } from 'lucide-react';
 import { interviewTypes, levels, roles, technologies } from '@/constants';
 import { cn } from '@/lib/utils';
@@ -402,13 +403,17 @@ const InterviewGenerationForm = ({ userId = "user123" }: { userId?: string }) =>
                                 disabled={loading || !isValid}
                                 className="flex items-center space-x-2 px-6 py-1.5 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-medium"
                             >
-                                <span className={loading ? 'animate-spin' : ''}>
-                                    {loading
-                                        ? 'Generating...'
-                                        : 'Generate Interview'
-                                    }
-                                </span>
-                                <CheckCircle className="w-4 h-4" />
+                                {!loading ? (
+                                    <>
+                                        <span>Generate Interview</span>
+                                        <CheckCircle className="size-4" />
+                                    </>
+                                ) : (
+                                    <>
+                                        <LoaderCircle className='size-4 animate-spin' />
+                                        <span>Generating...</span>
+                                    </>
+                                )}
                             </button>
                         ) : (
                             <button
