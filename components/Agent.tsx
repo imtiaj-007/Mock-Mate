@@ -53,12 +53,10 @@ const Agent = ({
         };
 
         const onSpeechStart = () => {
-            console.log("speech start");
             setIsSpeaking(true);
         };
 
         const onSpeechEnd = () => {
-            console.log("speech end");
             setIsSpeaking(false);
         };
 
@@ -89,8 +87,6 @@ const Agent = ({
         }
 
         const handleGenerateFeedback = async (messages: SavedMessage[]) => {
-            console.log("handleGenerateFeedback");
-
             const { success, feedbackId: id } = await createFeedback({
                 interviewId: interviewId!,
                 userId: userId!,
@@ -161,7 +157,7 @@ const Agent = ({
                         />
                         {isSpeaking && <span className="animate-speak" />}
                     </div>
-                    <h3>AI Interviewer</h3>
+                    <h3>MockMate Interviewer</h3>
                 </div>
 
                 {/* User Profile Card */}
@@ -207,13 +203,13 @@ const Agent = ({
 
                         <span className="relative">
                             {callStatus === "INACTIVE" || callStatus === "FINISHED"
-                                ? "Call"
+                                ? "Start Interview"
                                 : ". . ."}
                         </span>
                     </button>
                 ) : (
                     <button className="btn-disconnect" onClick={() => handleDisconnect()}>
-                        End
+                        Finish Interview
                     </button>
                 )}
             </div>

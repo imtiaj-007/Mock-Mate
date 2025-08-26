@@ -62,7 +62,7 @@ const InterviewCard = async ({
                     />
 
                     {/* Interview Role */}
-                    <h3 className="mt-5 capitalize">{role} Interview</h3>
+                    <h3 className="mt-5 capitalize">{role}</h3>
 
                     {/* Date & Score */}
                     <div className="flex flex-row gap-5 mt-3">
